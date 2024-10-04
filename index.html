@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Tarjeta para Ashly</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('dungeon.jpg'); 
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .tarjeta {
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 90%; 
+            max-width: 600px; 
+            max-height: 80vh; 
+            overflow-y: auto;
+            position: relative;
+            animation: float 1s ease-in-out forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.5s ease;
+        }
+
+        .tarjeta.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            text-align: center;
+            color: #D1183D;
+            font-size: 2rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 15px 0;
+            font-size: 16px; 
+            color: #333;
+        }
+
+        .btn-cerrar {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #D1183D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-cerrar:hover {
+            background-color: #F15573;
+            transform: scale(1.05);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .confeti {
+            position: fixed;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="tarjeta show">
+        <h1>¡Feliz cumpleaños Ashly!</h1>
+        <p>En este día tan especial quiero hablarte sobre...</p>
+        <p><strong>17 COSAS QUE ME AGRADAN DE TI:</strong></p>
+        <ul>
+            <li>Cuando me cuentas como fue tu día (en especial en audio)</li>
+            <li>Cuando hablo de algo que me sale de la nada y me sigues el juego</li>
+            <li>Lo feliz que te sientes cuando vas para donde tu tía</li>
+            <li>Cuando me tratas lindo aunque te haga molestar mucho</li>
+            <li>Que hablas mucho, me encanta cuando no paras de hablar</li>
+            <li>El hecho de que quieres ser la mejor de tu clase</li>
+            <li>Cuando me dices que estás cocinando (aunque yo diría que más bien haces veneno, jajaja)</li>
+            <li>Que te encantan los atardeceres igual que a mí</li>
+            <li>Que soy literalmente lo último cuando te vas a dormir</li>
+            <li>Que no me dices mentiras (aunque diga que no te creo, sí lo hago)</li>
+            <li>Tus palabras cuando se trata de mejorar (puros regaños ._.)</li>
+            <li>Que aunque sea muy exagerado al preocuparme por ti, no lo tomas como algo molesto</li>
+            <li>El hecho de que me cuentas tus cosas más personales demostrando que confías mucho en mí</li>
+            <li>Que te preocupes por mí aunque nunca te lo dije</li>
+            <li>Lo ordenada y ética que eres</li>
+            <li>Tu forma de hablar al momento de decir lo que piensas</li>
+            <li>Que eres INEFABLE</li>
+        </ul>
+        <p><strong>PLUS:</strong></p>
+        <p>Mmm El hecho de que me dejaras seguir contigo aunque no era lo más correcto me llena de felicidad. Saber que no soy la mejor persona para ti y aun así te quedaste, me ayudaste emocionalmente y a dejar ciertas cositas, que aunque no soy el chico de tus sueños, fui la persona que más se ha acercado a ti. Y eso de verdad me llena de alegría porque fuiste la primera persona que se pudo colar tan dentro de mis sentimientos... que peleamos mucho (por mi culpa) pero siempre estás ahí para buscar una solución, siempre estás pensando en lo mejor para mí y me regañas cuando voy a hacer algo que no es bueno, como andar rápido en motoooooo jajajaj...</p>
+        <p>"TE QUIERO DEMASIADO Y ESPERO VERTE PRONTO"</p>
+        <p>Con cariño,</p>
+        <p>Galeanooo</p>
+        <button class="btn-cerrar" onclick="crearConfeti()">CONFETI :D</button>
+    </div>
+
+    <script>
+        // Muestra la tarjeta después de que se cargue
+        window.onload = () => {
+            document.querySelector('.tarjeta').classList.add('show');
+        };
+
+        function crearConfeti() {
+            const colores = ['#FF0B00', '#FFB800', '#00B200', '#0072FF', '#E100B0'];
+            const confetiContainer = document.createElement('div');
+            confetiContainer.classList.add('confeti');
+            document.body.appendChild(confetiContainer);
+
+            const interval = setInterval(() => {
+                const pieza = document.createElement('div');
+                pieza.classList.add('pieza-confeti');
+                pieza.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+                pieza.style.position = 'absolute';
+                pieza.style.width = '10px';
+                pieza.style.height = '10px';
+                pieza.style.left = Math.random() * 100 + 'vw';
+                pieza.style.top = '0';
+                confetiContainer.appendChild(pieza);
+
+                // Animar confeti
+                setTimeout(() => {
+                    pieza.style.transform = 'translateY(100vh)';
+                    pieza.style.transition = 'transform 3s ease-in';
+                }, 50);
+
+                // Limpiar confeti después de un tiempo
+                setTimeout(() => {
+                    pieza.remove();
+                }, 3000);
+            }, 100);
+
+            // Detener el confeti al hacer clic de nuevo
+            const btnCerrar = document.querySelector('.btn-cerrar');
+            btnCerrar.onclick = () => {
+                clearInterval(interval);
+                confetiContainer.remove();
+            };
+        }
+    </script>
+</body>
+</html>
