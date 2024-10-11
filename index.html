@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Abrir Carta</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .carta {
+            width: 300px;
+            height: 400px;
+            background-color: #FFC0CB; /* Rosa claro */
+            border: 2px solid #D1183D;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #D1183D; /* Rojo para el encabezado */
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #333; /* Color del texto */
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .abrir-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #D1183D; /* Botón rojo */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .abrir-btn:hover {
+            background-color: #F15573; /* Color más claro al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="carta">
+        <h1>¡Bienvenida!</h1>
+        <p>Este es un detalle especial para ti, Ashly.</p>
+        <button class="abrir-btn" onclick="abrirCarta()">Abrir Carta</button>
+    </div>
+
+    <script>
+        function abrirCarta() {
+            window.location.href = "tu_tarjeta.html"; // Cambia esto a la ruta de tu tarjeta
+        }
+    </script>
+</body>
+</html>
