@@ -43,9 +43,16 @@
         h1 {
             text-align: center;
             color: #D1183D;
-            font-family: 'Lobster', cursive; /* Cambié la fuente aquí */
+            font-family: 'Lobster', cursive;
             font-size: 2.5rem;
             margin-bottom: 20px;
+        }
+
+        .imagen-cumple {
+            display: block;
+            margin: 0 auto 20px; /* Centrar la imagen */
+            width: 80%; /* Ajustar el tamaño de la imagen */
+            max-width: 300px; /* Tamaño máximo de la imagen */
         }
 
         p {
@@ -131,6 +138,7 @@
     </audio>
 
     <div class="tarjeta show">
+        <img src="IMG-20241008-WA0198.jpg" alt="Cumpleaños" class="imagen-cumple"> <!-- Cambia "tu-imagen.jpg" por el nombre de tu imagen -->
         <h1>¡Feliz cumpleaños Ashly! 🎂🎈</h1>
         <p>En este día tan especial quiero hablarte sobre...</p>
         <p><strong>17 COSAS QUE ME AGRADAN DE TI:</strong> 💖</p>
@@ -196,10 +204,3 @@
             // Detener el confeti al hacer clic de nuevo
             const btnCerrar = document.querySelector('.btn-cerrar');
             btnCerrar.onclick = () => {
-                clearInterval(interval);
-                confetiContainer.remove();
-            };
-        }
-    </script>
-</body>
-</html>
